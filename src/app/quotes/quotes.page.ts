@@ -12,6 +12,9 @@ export class QuotesPage implements OnInit {
     this.dataSerivce.getData('quotes').subscribe(data => {
       console.log(data);
       this.quotes = data;
+      // setTimeout(() => {
+      //   this.quotes = data;
+      // }, 2000);
     });
   }
 

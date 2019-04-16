@@ -8,7 +8,7 @@
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
-        <ion-list>
+        <ion-list *ngIf="quotes.length > 0">
           <ion-item detail *ngFor="let quote of quotes">
             <ion-label text-wrap>
               <ion-item lines="none">
@@ -17,6 +17,20 @@
               <ion-item lines="none">
                 <p>~{{ quote.writer }}</p>
               </ion-item>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+        <ion-list *ngIf="quotes.length === 0">
+          <ion-item *ngFor="let quote of [].constructor(10)">
+            <ion-label text-wrap>
+              <ion-text>
+                <ion-skeleton-text animate width="100%"></ion-skeleton-text>
+                <ion-skeleton-text animate width="80%"></ion-skeleton-text>
+              </ion-text>
+              <ion-text>
+                <ion-skeleton-text animate width="40%"></ion-skeleton-text>
+              </ion-text>
             </ion-label>
           </ion-item>
         </ion-list>
