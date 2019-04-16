@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-quotes',
   templateUrl: './quotes.page.html',
-  styleUrls: ['./quotes.page.scss'],
+  styleUrls: ['./quotes.page.scss']
 })
 export class QuotesPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  quotes: any = [];
+  constructor(private dataSerivce: DataService) {
+    this.dataSerivce.getData('quotes').subscribe(data => {
+      console.log(data);
+      this.quotes = data;
+    });
   }
 
+  ngOnInit() {}
 }
