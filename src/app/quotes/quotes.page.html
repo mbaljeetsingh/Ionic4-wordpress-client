@@ -5,5 +5,26 @@
 </ion-header>
 
 <ion-content>
-  <h1>Quotes Page</h1>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-list>
+          <ion-item detail *ngFor="let item of [].constructor(10)">
+            <ion-label text-wrap>
+              <ion-item lines="none">
+                <h2>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Sapiente vel esse ullam recusandae totam necessitatibus
+                  similique itaque numquam!
+                </h2>
+              </ion-item>
+              <ion-item lines="none">
+                <p>~Lorem ipsum</p>
+              </ion-item>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
