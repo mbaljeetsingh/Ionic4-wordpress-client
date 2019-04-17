@@ -9,7 +9,11 @@
     <ion-row>
       <ion-col size="12">
         <ion-list *ngIf="quotes.length > 0">
-          <ion-item detail *ngFor="let quote of quotes">
+          <ion-item
+            detail
+            *ngFor="let quote of quotes"
+            routerLink="/tabs/quotes/{{ quote.id }}"
+          >
             <ion-label text-wrap>
               <ion-item lines="none">
                 <h2 [innerHTML]="quote.title.rendered"></h2>

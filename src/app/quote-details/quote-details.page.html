@@ -1,9 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>quote-details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Quote Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item lines="none">
+          <ion-label text-wrap>
+            <ion-item lines="none">
+              <h2 [innerHTML]="quote?.title.rendered"></h2>
+            </ion-item>
+            <ion-item lines="none">
+              <p>~{{ quote?.writer }}</p>
+            </ion-item>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button color="primary">
+          <ion-icon slot="start" name="create"></ion-icon>
+          Edit
+        </ion-button>
+        <ion-button color="danger">
+          <ion-icon slot="start" name="trash"></ion-icon>
+          Delete
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -17,6 +17,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'quotes/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: '../quote-details/quote-details.module#QuoteDetailsPageModule'
+          }
+        ]
+      },
+      {
         path: 'about',
         children: [
           {
