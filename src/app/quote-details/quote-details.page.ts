@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { AuthService } from '../auth.service';
 
@@ -13,7 +13,8 @@ export class QuoteDetailsPage implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private dataService: DataService,
-    public authService: AuthService
+    public authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -22,6 +23,14 @@ export class QuoteDetailsPage implements OnInit {
     this.dataService.getData(`quotes/${id}`).subscribe(data => {
       console.log(data);
       this.quote = data;
+    });
+  }
+
+  onDelete() {
+    this.dataService.deleteData(`quotes/${this.quote.id}`).subscribe(data => {
+      console.log(data);
+      this.dataService.refreshQuotes.next();
+      this.router.navigateByUrl('/tabs');
     });
   }
 }

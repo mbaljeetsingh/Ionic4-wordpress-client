@@ -35,4 +35,14 @@ export class DataService {
       headers: headers
     });
   }
+
+  deleteData(url: string) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${this.token}`
+    });
+    return this.http.delete(`${apiUrl}/wp/v2/${url}`, {
+      headers: headers
+    });
+  }
 }
