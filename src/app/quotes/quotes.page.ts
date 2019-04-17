@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-quotes',
@@ -8,7 +9,10 @@ import { DataService } from '../data.service';
 })
 export class QuotesPage implements OnInit {
   quotes: any = [];
-  constructor(private dataSerivce: DataService) {
+  constructor(
+    private dataSerivce: DataService,
+    public authService: AuthService
+  ) {
     this.dataSerivce.getData('quotes').subscribe(data => {
       console.log(data);
       this.quotes = data;

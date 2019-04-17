@@ -8,7 +8,7 @@ import { AuthService } from '../auth.service';
 })
 export class ProfilePage implements OnInit {
   model: any = {};
-  constructor(private authService: AuthService) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit() {}
 
@@ -17,10 +17,16 @@ export class ProfilePage implements OnInit {
     this.authService.postLogin(f.value).subscribe(
       data => {
         console.log(data);
+        this.authService.isAuthenticated.next(true);
       },
       err => {
         console.log(err.message);
+        this.authService.isAuthenticated.next(false);
       }
     );
+  }
+
+  onLogout() {
+    this.authService.isAuthenticated.next(false);
   }
 }

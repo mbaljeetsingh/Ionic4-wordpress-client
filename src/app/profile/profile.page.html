@@ -8,7 +8,11 @@
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
-        <form #f="ngForm" (ngSubmit)="onLogin(f)">
+        <form
+          #f="ngForm"
+          (ngSubmit)="onLogin(f)"
+          *ngIf="!(authService.isAuthenticated | async)"
+        >
           <ion-item>
             <ion-label position="floating">Username</ion-label>
             <ion-input
@@ -25,10 +29,20 @@
               [(ngModel)]="model.password"
             ></ion-input>
           </ion-item>
-          <ion-button block type="submit" color="primary">
+          <ion-button expand="block" type="submit" color="primary">
             Submit
           </ion-button>
         </form>
+      </ion-col>
+      <ion-col size="12" *ngIf="(authService.isAuthenticated | async)">
+        <ion-button
+          expand="block"
+          type="button"
+          color="primary"
+          (click)="onLogout()"
+        >
+          Logout
+        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

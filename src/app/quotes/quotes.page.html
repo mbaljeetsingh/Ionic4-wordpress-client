@@ -1,6 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Quotes</ion-title>
+    <ion-buttons slot="end" *ngIf="(authService.isAuthenticated | async)">
+      <ion-button (click)="onCreate()">
+        <ion-icon slot="start" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-quote-details',
@@ -11,7 +12,8 @@ export class QuoteDetailsPage implements OnInit {
   quote;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private dataService: DataService
+    private dataService: DataService,
+    public authService: AuthService
   ) {}
 
   ngOnInit() {
