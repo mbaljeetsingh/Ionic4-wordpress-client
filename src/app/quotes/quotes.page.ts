@@ -13,6 +13,13 @@ export class QuotesPage implements OnInit {
     private dataSerivce: DataService,
     public authService: AuthService
   ) {
+    this.getQuotes();
+    this.dataSerivce.refreshQuotes.subscribe(() => {
+      this.getQuotes();
+    });
+  }
+
+  getQuotes() {
     this.dataSerivce.getData('quotes').subscribe(data => {
       console.log(data);
       this.quotes = data;

@@ -23,7 +23,10 @@
         </ion-item>
       </ion-col>
       <ion-col size="12" *ngIf="(authService.isAuthenticated | async)">
-        <ion-button color="primary">
+        <ion-button
+          color="primary"
+          routerLink="/tabs/quotes/{{ quote?.id }}/edit"
+        >
           <ion-icon slot="start" name="create"></ion-icon>
           Edit
         </ion-button>
