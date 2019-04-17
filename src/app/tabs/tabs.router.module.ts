@@ -17,11 +17,30 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'quotes/edit-quote',
+        children: [
+          {
+            path: '',
+            loadChildren: '../edit-quote/edit-quote.module#EditQuotePageModule'
+          }
+        ]
+      },
+      {
+        path: 'quotes/:id/edit',
+        children: [
+          {
+            path: '',
+            loadChildren: '../edit-quote/edit-quote.module#EditQuotePageModule'
+          }
+        ]
+      },
+      {
         path: 'quotes/:id',
         children: [
           {
             path: '',
-            loadChildren: '../quote-details/quote-details.module#QuoteDetailsPageModule'
+            loadChildren:
+              '../quote-details/quote-details.module#QuoteDetailsPageModule'
           }
         ]
       },

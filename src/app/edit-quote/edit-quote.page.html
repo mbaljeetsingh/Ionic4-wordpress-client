@@ -1,9 +1,46 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>edit-quote</ion-title>
+    <ion-title>Create/Edit Quote</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <form #f="ngForm" (ngSubmit)="onEditQuote(f)">
+          <ion-item>
+            <ion-label position="floating">Title</ion-label>
+            <ion-input
+              name="title"
+              type="text"
+              [(ngModel)]="model.title"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Writer</ion-label>
+            <ion-input
+              name="writer"
+              type="text"
+              [(ngModel)]="model.writer"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Select Status</ion-label>
+            <ion-select
+              name="status"
+              [(ngModel)]="model.status"
+              placeholder="Select Status"
+            >
+              <ion-select-option value="publish">Publish</ion-select-option>
+              <ion-select-option value="draft">Draft</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-button expand="block" type="submit" color="primary">
+            Submit
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
